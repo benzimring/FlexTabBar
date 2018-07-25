@@ -131,7 +131,7 @@ open class WKTabBarController: UIViewController, WKTabBarControllerProtocol, UIC
     
     open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let proportion = tabBarItems[indexPath.row].proportion
-        let sum = tabBarItems.reduce(0.0) { $0.0 + $0.1.proportion }
+        let sum = tabBarItems.reduce(0, {x, y in x + y.proportion })
         return CGSize(width: collectionView.bounds.width * CGFloat(proportion / sum), height: collectionView.bounds.height)
     }
     
@@ -173,7 +173,7 @@ open class WKTabBarController: UIViewController, WKTabBarControllerProtocol, UIC
         viewController = vc
     }
     
-    func didChangeOrientation(_ notification: Notification) {
+    @objc func didChangeOrientation(_ notification: Notification) {
         collectionView.reloadData()
     }
     

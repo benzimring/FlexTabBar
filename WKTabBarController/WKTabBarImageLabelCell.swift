@@ -20,7 +20,7 @@ open class WKTabBarImageLabelCell: WKTabBarImageCell {
         view.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -10).isActive = true
         
         widthAnchorConstraint = imageView.widthAnchor.constraint(equalToConstant: imageSize)
         heightAnchorConstraint = imageView.heightAnchor.constraint(equalToConstant: imageSize)
@@ -30,13 +30,11 @@ open class WKTabBarImageLabelCell: WKTabBarImageCell {
         
         let textLabel = UILabel()
         textLabel.text = "Label"
-        textLabel.font = UIFont.systemFont(ofSize: 16)
+        textLabel.font = UIFont.systemFont(ofSize: 10)
         view.addSubview(textLabel)
         textLabel.translatesAutoresizingMaskIntoConstraints = false
-        textLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 10).isActive = true
-        textLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        textLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 2).isActive = true
-        textLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        textLabel.centerXAnchor.constraint(equalTo: imageView.centerXAnchor).isActive = true
+        textLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 10).isActive = true
         
         contentView.addSubview(view)
         view.translatesAutoresizingMaskIntoConstraints = false
